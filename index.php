@@ -10,3 +10,4 @@ header('Content-Type: text/html; charset=utf-8');
 //$res = 31.320;
 
 echo "Вы успешно зашли на наш сайт" . " " . $res;
+exit();
