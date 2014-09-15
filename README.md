@@ -1,4 +1,4 @@
-TEST FILE
+TEST PROJECT
 =======================
 
 * Created by PhpStorm.
