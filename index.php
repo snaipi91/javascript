@@ -7,8 +7,6 @@ header('Content-Type: text/html; charset=utf-8');
  * Time: 17:46
  */
 
-<script>alert('σσσ');</script>
-
-$res = 31.320;
+<script type="text/javascript" src="js/main.js"></script>
 
 return false;
