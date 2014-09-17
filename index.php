@@ -10,3 +10,5 @@ header('Content-Type: text/html; charset=utf-8');
 <script type="text/javascript" src="js/main.js"></script>
 
 return false;
+
+//exit
