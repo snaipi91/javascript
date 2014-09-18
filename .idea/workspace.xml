@@ -26,7 +26,7 @@
       <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="3" selection-start="180" selection-end="180" vertical-scroll-proportion="0.2845982" vertical-offset="0" max-vertical-offset="896">
+            <state line="11" column="2" selection-start="161" selection-end="161" vertical-scroll-proportion="0.20870535" vertical-offset="0" max-vertical-offset="896">
               <folding />
             </state>
           </provider>
@@ -129,6 +129,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\demo" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -233,7 +238,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="3" selection-start="180" selection-end="180" vertical-scroll-proportion="0.2845982" vertical-offset="0" max-vertical-offset="896">
+        <state line="11" column="2" selection-start="161" selection-end="161" vertical-scroll-proportion="0.20870535" vertical-offset="0" max-vertical-offset="896">
           <folding />
         </state>
       </provider>
