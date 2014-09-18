@@ -7,8 +7,15 @@ header('Content-Type: text/html; charset=utf-8');
  * Time: 17:46
  */
 
-<script type="text/javascript" src="js/main.js"></script>
-
 return false;
-
 //exit
+?>
+
+<html>
+<head>
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+
+</body>
+</html>
