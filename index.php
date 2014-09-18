@@ -7,8 +7,4 @@ header('Content-Type: text/html; charset=utf-8');
  * Time: 17:46
  */
 
-$res = 31.320;
-$sky = "color";
-$flag = true;
-
 return false;
