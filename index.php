@@ -1,5 +1,14 @@
+<? header('Content-Type: text/html; charset=utf-8'); ?>
+<html>
+<head>
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+<canvas id="block" width="700" height="700"></canvas>
+</body>
+</html>
+
 <?php
-header('Content-Type: text/html; charset=utf-8');
 /**
  * Created by PhpStorm.
  * User: Andrey
@@ -7,15 +16,7 @@ header('Content-Type: text/html; charset=utf-8');
  * Time: 17:46
  */
 
-return false;
+
 //exit
 ?>
 
-<html>
-<head>
-    <script type="text/javascript" src="js/main.js"></script>
-</head>
-<body>
-    kkk
-</body>
-</html>
