@@ -313,25 +313,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/jquery/dist/jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8405" column="0" selection-start="226370" selection-end="226373" vertical-scroll-proportion="3.4928493" vertical-offset="181735" max-vertical-offset="202312">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/angular-1.1.6/gdocs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5808" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/underscore/underscore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="31262" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.less">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="0" selection-start="1" selection-end="1" vertical-scroll-proportion="0.025404157" vertical-offset="0" max-vertical-offset="866" />
@@ -340,16 +321,6 @@
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="0" selection-start="201" selection-end="201" vertical-scroll-proportion="-4.967742" vertical-offset="0" max-vertical-offset="506">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/angular-1.1.6/CHANGELOG.md">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6416" column="71" selection-start="357038" selection-end="357038" vertical-scroll-proportion="0.34814814" vertical-offset="140964" max-vertical-offset="153450">
           <folding />
         </state>
       </provider>
