@@ -13,6 +13,14 @@ window.onload = function() {
         }
     }
 
+    // замыкание
+    var drawHeight = (function() {
+        var i = 15;
+        return function() {
+            return i +=15;
+        }
+    }());
+
     // Инициализация canvas, возвращаем в переменную ссылку на объект canvas
     var canvas = canvas.init();
 
@@ -25,11 +33,13 @@ window.onload = function() {
         },
         canvas : canvas, //свойству canvas присваевыем ссылку на объект
         //метод lifeScale объекта Core
-        lifeScale : function(h) {
-            this.canvas.fillStyle = "#ff0000";
-            this.canvas.fillRect(30,h,this.live,3);
-        }
+        lifeScale : function() {
+                this.canvas.fillStyle = "#ff0000";
+                this.canvas.fillRect(30,this.drawHeight(),this.live,3);
+        },
+        drawHeight : drawHeight //ссылка на замыкание
     }
+
 
     // Создаем прототип Объекта Core
     var Car = Object.create(Core);
@@ -45,9 +55,9 @@ window.onload = function() {
     }
 
     // создаем новый метод "переопределяем" в случае если метод не будет найден, поиск пойдет по цепочке прототипов...
-    Car.lifeScale = function(h) {
+    Car.lifeScale = function() {
         this.canvas.fillStyle = "#00ff00";
-        this.canvas.fillRect(30,h,this.live,3);
+        this.canvas.fillRect(30,this.drawHeight(),this.live,3);
     };
 
 
@@ -55,9 +65,11 @@ window.onload = function() {
     // Вызов конструктора объектов и методов
     var mercedes = Object.create(Car).constructor("S-500", 300, 257);
     var man = Object.create(Core).constructor("Jon", 121);
+    var woman = Object.create(Core).constructor("Milla", 100);
     var Opel = Object.create(Car).constructor("Astra", 800, 301);
-    man.lifeScale(30);
-    mercedes.lifeScale(60);
-    Opel.lifeScale(90);
+    man.lifeScale();
+    woman.lifeScale();
+    mercedes.lifeScale();
+    Opel.lifeScale();
 }
 
