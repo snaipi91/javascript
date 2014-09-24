@@ -1,7 +1,7 @@
 <? header('Content-Type: text/html; charset=utf-8'); ?>
 <html>
 <head>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" async src="js/main.js"></script>
 </head>
 <body>
 <canvas id="block" width="700" height="700"></canvas>
