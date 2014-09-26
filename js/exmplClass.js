@@ -1,7 +1,6 @@
 /**
- * Created by Andrey on 18.09.14.
+ * Created by Andrey on 26.09.14.
  */
-
 window.onload = function() {
 
     //Объект canvas
