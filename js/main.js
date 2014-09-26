@@ -1,6 +1,7 @@
 /**
  * Created by Andrey on 18.09.14.
  */
+//Abstract example
 
 window.onload = function() {
 
