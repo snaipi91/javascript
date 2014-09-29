@@ -5,6 +5,11 @@
 </head>
 <body>
 <canvas id="block" width="700" height="700"></canvas>
+<div id="wrap">
+        <input id="text" type="text" name="text">
+        <button id="submit">Query</button>
+        <div id="textRes"></div>
+</div>
 </body>
 </html>
 
@@ -16,6 +21,7 @@
  * Time: 17:46
  */
 
+echo strtoupper($_GET['text']);
 
 //exit
 ?>
