@@ -31,7 +31,49 @@ console.log(arrString.length);
         - every         |   array.every(function(e) { ... }) аналогично filter разница лишь в том, что возвращает Boolean true/false
         - reduce        |   array.reduce(function(a,b) { ... }
         - indexOf, lastIndexOf
+
+    function ----
+        объект arguments - ведёт себя как массив
+        callback функция обратного вызова
+        функции создают локальную область видимости
+
+        Замыкания:
+            при вызове функции создается объект который содержит локальные переменный этой функции
+            когда мы определяем функцию, внутри функции эта функция сохраняет ссылку на этот объект с локальными переменнами
+            объект существует только тогда когда есть функции которые на него ссылаются
   */
+
+// замыкание
+var drawHeight = (function() {
+    var i = 15;
+    return function(num) {
+        i = num !== undefined ? num : i;
+        return i +=15;
+    }
+}());
+
+console.log(drawHeight(31)); //46
+console.log(drawHeight()); //61
+console.log(drawHeight()); //76
+
+func = function(callback) {
+    var time = new Date();
+    callback(time); // callback
+}
+
+func(function(t) {
+    console.log(t + " time");
+})
+
+
+// Выражение вызова
+
+var street = (function(name) {
+    return "my street" + name;
+}("103 Ivanovo"));
+
+console.log(street) // присваиваем сразу значение функции переменной
+
 
 arrString.forEach(function(elem, index, array) {
     array[index] = elem.toUpperCase();
@@ -43,3 +85,34 @@ var newArr = arrString.filter(function(e) {
 });
 
 console.log(newArr); // вернет New String
+
+
+/*
+    Исключения try catch finally
+         try {
+         инструкция
+         } catch(идентификатор){
+         инструкция
+         } finally {
+         инструкция
+         }
+    - в try выполняется код, если попадается ошибка исполняется код в блоке catch, передается обЪект throw myError
+    - Error (name, stack, message); - properties
+    - пробрасывает объект ошибок дальше по стеку вызовов
+
+ */
+
+var myError = new Error("My message error");
+myError.name = "myError";
+
+function slow(a) {
+    if(a > 3) throw myError; // выводит ошибку
+}
+
+try {
+    slow(7);
+} catch(e) {
+    console.log(e.name);
+} finally {
+    console.log(true) // срабатывает всегда
+}
