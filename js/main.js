@@ -3,79 +3,81 @@
  */
 //Abstract example
 
+/*
+*
+* JSON
+*   JSON.stringify(egor) - преобразовывает объект в строку
+*
+* methods
+*   XMLHttpRequest.abort() обрывает текущий запрос
+*   XMLHttpRequest.setRequestHeader(header, value) если заголовок уже есть, он заменяется
+*   XMLHttpRequest.getAllResponseHeaders() возвращает строку со всеми заголовками
+*   XMLHttpRequest.getResponseHeader(headerName) возвращает значение заголовка ответа сервера
+*
+*properties
+*   XMLHttpRequest.onreadystatechange ссылается на ф-цию обработчик событий
+*   XMLHttpRequest.readyState состояние от 0 до 4
+*   XMLHttpRequest.responseText текст ответ от сервера
+*   XMLHttpRequest.status возвращает ответ от сервера
+* */
+
 window.onload = function() {
 
-    //Объект canvas
-    var canvas = {
-        init : function() {
-            var canvas = document.getElementById('block');
-            var canv = canvas.getContext('2d');
-            return canv;
+    function ajax(getValue) {
+        var request = new XMLHttpRequest(); // объект асинхронного и синхроного запроса
+        //method open(method, URL[, async(true || false), user, pass]);
+        request.open('POST','/ajax.php', true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        request.onreadystatechange = function() {
+            if (request.readyState == 4 && request.status == 200)
+                proccess(request.responseText);
+                console.log(request.responseText);
         }
+
+        request.send("request=" + JSON.stringify(vasy)); //отправляет запрос, аргумент - тело запроса
     }
 
-    // замыкание
-    var drawHeight = (function() {
-        var i = 15;
-        return function(num) {
-            i = num!== undefined? num : i;
-            return i +=15;
-        }
-    }());
-
-    // Инициализация canvas, возвращаем в переменную ссылку на объект canvas
-    var canvas = canvas.init();
-
-    // Создаем Объект Core
-    var Core = {
-        constructor : function(name,live) {
-            this.name = name;
-            this.live = live;
-            this.lifeScale();
-            this.nameScale();
-            return this; //возвращаем объект
-        },
-        canvas : canvas, //свойству canvas присваевыем ссылку на объект
-        //метод lifeScale объекта Core
-        lifeScale : function() {
-            this.canvas.fillStyle = "#ff0000";
-            this.canvas.fillRect(120,this.drawHeight(),this.live,3);
-        },
-        nameScale : function() {
-            this.canvas.fillStyle = "#31fcf1";
-            this.canvas.font = "20px Times New Roman";
-            this.canvas.fillText(this.name + ".live:" ,5 ,this.drawHeight());
-        },
-        drawHeight : drawHeight //свойству drawHeight присваивается значение анонимной самозывающийся ф-ции
+    function proccess(text) {
+        document.getElementById("textRes").innerHTML += text + '<br>';
     }
 
-
-    // Создаем прототип Объекта Core
-    var Car = Object.create(Core);
-
-    // Создаем конструктор
-    Car.constructor = function(name, live, speed) {
-        //Вызываем конструктор объекта Core в его контексте, использую функцию apply
-        //arguments[] - все передаваемые аргументы
-        Core.constructor.apply(this, arguments);
-        //приисваевыем новое свойство
-        this.speed = speed + "km/h" || null;
-        return this; // возвращаем объект из конструктора
+    document.getElementById('submit').onclick = function() {
+        var val = document.getElementById('textExm');
+        ajax(val.value);
     }
 
-    // создаем новый метод "переопределяем" в случае если метод не будет найден, поиск пойдет по цепочке прототипов...
-    Car.lifeScale = function() {
-        this.canvas.fillStyle = "#00ff00";
-        this.canvas.fillRect(120,this.drawHeight(),this.live,3);
+    var Worker = function (name) {
+        this.name = name;
     };
 
+    var classOf = function(obj) {
+        return Object.prototype.toString.call(obj).slice(8,-1);
+    };
 
-    //render
-    // Вызов конструктора объектов и методов
-    var mercedes = Object.create(Car).constructor("S-500", 300, 257);
-    var man = Object.create(Core).constructor("Jon", 121);
-    var woman = Object.create(Core).constructor("Milla", 100);
-    var Opel = Object.create(Car).constructor("Astra", 800, 301);
+    Worker.prototype.greet = function () {
+        console.log("Hello " + this.name);
+    };
+
+    var Developer = function (name, skills) {
+        Worker.apply(this, arguments);
+        this.skills = skills || [];
+        this.toJSON = function() {
+            return {
+                name: this.name,
+                skills: this.skills
+            }
+        }
+    };
+
+    Developer.prototype = Object.create(Worker.prototype);
+    Developer.prototype.constructor = Developer;
+
+    var andrey, egor, vasy;
+
+    andrey = new Worker("Aliev");
+    egor = new Worker("Silov");
+    vasy = new Developer("Vasuliy", ["HTML", "CSS"]);
 
 }
 

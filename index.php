@@ -1,28 +1,16 @@
 <? header('Content-Type: text/html; charset=utf-8'); ?>
 <html>
 <head>
-    <script type="text/javascript" async src="js/main.js"></script>
 </head>
 <body>
-<canvas id="block" width="700" height="700"></canvas>
+<!--<canvas id="block" width="700" height="700"></canvas>-->
 <div id="wrap">
-        <input id="text" type="text" name="text">
+        <input id="textExm" type="text" name="text">
         <button id="submit">Query</button>
         <div id="textRes"></div>
 </div>
+<script type="text/javascript" async src="js/main.js"></script>
 </body>
 </html>
 
-<?php
-/**
- * Created by PhpStorm.
- * User: Andrey
- * Date: 15.09.14
- * Time: 17:46
- */
-
-echo strtoupper($_GET['text']);
-
-//exit
-?>
 
