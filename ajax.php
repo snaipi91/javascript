@@ -8,8 +8,8 @@
 sleep(0.3);
 $example = $_POST["request"];
 var_dump($_POST["request"]);
-$example = json_decode($example, false); // преобразовывает в php объект
+$example = json_decode($example, false);
 
 
-echo json_encode($example); // преобразовывает в json строку
+echo json_encode($example);
 die();
