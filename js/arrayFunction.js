@@ -52,6 +52,25 @@ var drawHeight = (function() {
     }
 }());
 
+//замыкание - приватные переменные
+function user() {
+    var name = ‘Unknown’;
+    return {
+        getName: function() {
+            return name;
+        },
+        setName: function(newName) {
+            name = newName;
+        }
+    }
+}
+
+var testUser = user();
+testUser.getName(); // Unknown
+testUser.setName(‘John Smith’); // Изменяем значение приватной переменной
+testUser.getName(); // John Smith
+
+
 console.log(drawHeight(31)); //46
 console.log(drawHeight()); //61
 console.log(drawHeight()); //76
