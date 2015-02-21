@@ -33,6 +33,18 @@
 *
 * */
 
+// LocalStorage
+
+var field = document.getElementById("field");
+    field.value = sessionStorage.getItem("save");
+
+addEventListener('keydown', function() {
+    sessionStorage.setItem("save", field.value);
+    console.log(sessionStorage);
+});
+
+//*************
+
 console.log(encodeURI("http://dom.ru/page?name=Жорик"));
 // decodeURI - аналогичная
 
