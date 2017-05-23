@@ -135,3 +135,19 @@ try {
 } finally {
     console.log(true) // срабатывает всегда
 }
+
+let arr = [
+    1,
+    2,
+    3,
+    [1,3, [3,4,5]]
+];
+
+function sum(arr) {
+    var res = 0;
+    arr.forEach((elem) => {
+        res += (Object.prototype.toString.call(elem) == '[object Array]') ? sum(elem) : elem;
+    });
+
+    return res;
+}
