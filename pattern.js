@@ -1,56 +1,83 @@
-//
-//pattern js
-//
+// observable
 
-var module = (function() {
-  var _private = {
-    i: 5,
-    get: function() {
-      console.log('Текущее значение:' + this.i);
-    },
-    set: function(val) {
-      this.i = val;
-    },
-    run: function() {
-      console.log('процесс запущен');
-    },
-    jump: function() {
-      console.log('резкое изменение');
-    }
-  };
-  return {
-    facade: function(args) {
-      _private.set(args.val);
-      _private.get();
-      if (args.run) {
-        _private.run();
-      }
-    }
-  }
-}());
+/**
+ @class Tape
+ @constructor
+ */
+function Tape() {
+    let photos = [],
+        subscribes = [];
 
-module.facade({run:true, val:10}); // Текущее значение: 10, процесс запущен
-
-//Singleton 
-var Singleton_B;
-(function(){
-    var instance;
-    var anticlone_proxy;
-
-    Singleton_B = function(){
-        if( instance ){ return instance; }
-
-        instance = 
-        {
-            _counter: 0,
-            log: function( text ){ this._counter++; console.log( text + this._counter ); }
-        }
-
-        anticlone_proxy =
-        {
-            log: function( text ){ return instance.log( text ); }
-        }
-
-        return anticlone_proxy;
+    /**
+     @type Function
+     @param {object} user
+     */
+    Tape.prototype.subscribe = observer => {
+          subscribes.push(observer);
     };
-})();
+
+    /**
+     @type Function
+     @param {object} user
+     */
+    Tape.prototype.unsubscribe = observer => {
+        subscribes.forEach((subscribe, i) => {
+            if(subscribe.lastName === observer.lastName) {
+                subscribes.splice(i, 1)
+            }
+        });
+        console.log(subscribes);
+    };
+
+    Tape.prototype.setPhoto = photo => {
+        if(!photo) {
+            throw new Error();
+        }
+
+        photos.push(photo);
+        subscribes.forEach(subscribe => {
+            subscribe.msg(subscribe);
+        })
+    };
+
+    Tape.prototype.getPhotos = () => {
+        return subscribes;
+    }
+}
+
+/**
+ @class User
+ @constructor
+ */
+function User(firstName, lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+
+    User.prototype.msg = (subscribe) => {
+        console.log(`${subscribe.firstName} ${subscribe.lastName} - add new photo for you`);
+    }
+}
+
+let tape = new Tape(),
+    jsperov = new User('Andrey', 'Perov'),
+    uri93 = new User('Uriy', 'Soloviyev');
+
+tape.subscribe(jsperov);
+
+tape.setPhoto({ main: 'http://photo.me/fjksajkf.jpeg'});
+tape.setPhoto({ main: 'http://photo.me/fjk.jpeg'});
+
+tape.subscribe(uri93);
+
+tape.setPhoto({ main: 'http://photo.me/png24.jpg'});
+
+tape.unsubscribe(jsperov);
+
+/* console.log
+
+    Andrey Perov - add new photo for you
+    Andrey Perov - add new photo for you
+    Andrey Perov - add new photo for you
+    Uriy Soloviyev - add new photo for you
+
+*/
