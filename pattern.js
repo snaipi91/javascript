@@ -81,3 +81,21 @@ tape.unsubscribe(jsperov);
     Uriy Soloviyev - add new photo for you
 
 */
+
+
+// Carying
+// return function if arg == null
+
+function carring(num) {
+    let prev = num,
+        res = null;
+    return function xz(num) {
+        if(!arguments[0]) { return res }
+        res = num + prev;
+        prev = res;
+        return xz
+    }
+}
+
+let func = carring(0);
+console.log(func(5)(3)(13)()); // 18
